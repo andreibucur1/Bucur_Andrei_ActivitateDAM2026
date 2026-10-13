@@ -9,9 +9,9 @@
 
     <Button
         android:id="@+id/button"
+        android:layout_width="223dp"
+        android:layout_height="190dp"
         android:onClick="openActivity"
-        android:layout_width="744dp"
-        android:layout_height="616dp"
         android:text="@string/deschide_activitatea"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

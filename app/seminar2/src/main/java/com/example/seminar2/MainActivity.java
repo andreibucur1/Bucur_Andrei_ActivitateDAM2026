@@ -1,7 +1,9 @@
 package com.example.seminar2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,5 +48,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.e("Seminar", "onDestroy");
+    }
+
+    public void openActivity(View view) {
+        Intent it = new Intent(this, ActivitateRezultat.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("mesaj", "mesaj din activitate noua");
+        bundle.putInt("numar1", 5);
+        bundle.putInt("numar2", 7);
+        it.putExtras(bundle);
+        startActivity(it);
+
+
+
+
     }
 }

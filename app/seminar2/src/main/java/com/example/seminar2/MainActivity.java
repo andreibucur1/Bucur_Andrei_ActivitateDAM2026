@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -58,10 +60,21 @@ public class MainActivity extends AppCompatActivity {
         bundle.putInt("numar1", 5);
         bundle.putInt("numar2", 7);
         it.putExtras(bundle);
-        startActivity(it);
+        startActivityForResult(it, 83);
 
 
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            String mesajIntors = data.getStringExtra("mesaj");
+            int suma = data.getIntExtra("suma", 0);
+            Toast.makeText(this, mesajIntors + " " + suma, Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

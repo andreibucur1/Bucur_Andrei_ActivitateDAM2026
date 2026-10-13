@@ -2,6 +2,7 @@ package com.example.seminar2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ActivitateRezultat extends AppCompatActivity {
+
+    int numar1;
+    int numar2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +31,20 @@ public class ActivitateRezultat extends AppCompatActivity {
         Intent it = getIntent();
         Bundle bundle = it.getExtras();
         String mesaj = bundle.getString("mesaj");
-        int numar1 = bundle.getInt("numar1", 0);
-        int numar2 = bundle.getInt("numar2", 0);
+        this.numar1 = bundle.getInt("numar1", 0);
+        this.numar2 = bundle.getInt("numar2", 0);
         Toast.makeText(this, mesaj, Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void intoarcereActivitateRezultat(View view){
+        int suma = this.numar1 + this.numar2;
+        String mesajNou = "noul mesaj";
+        Intent it = new Intent();
+        it.putExtra("mesaj", mesajNou);
+        it.putExtra("suma", suma);
+        setResult(RESULT_OK, it);
+        finish();
 
     }
 }

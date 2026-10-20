@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">seminar3</string>
+    <string name="btn_adauga">Adaugă autobuz</string>
+    <string name="tv_niciun_autobuz">Niciun autobuz adăugat</string>
+    <string name="lbl_linie">Linie</string>
+    <string name="hint_linie">Ex: 783</string>
+    <string name="lbl_numar_locuri">Număr locuri</string>
+    <string name="hint_numar_locuri">Ex: 90</string>
+    <string name="lbl_producator">Producător</string>
+    <string name="cb_aer_conditionat">Are aer condiționat</string>
+    <string name="btn_salveaza">Salvează</string>
+    <string name="eroare_camp_obligatoriu">Câmp obligatoriu</string>
+
+    <string-array name="producatori">
+        <item>Mercedes-Benz</item>
+        <item>Iveco</item>
+        <item>Solaris</item>
+        <item>Otokar</item>
+    </string-array>
+</resources>

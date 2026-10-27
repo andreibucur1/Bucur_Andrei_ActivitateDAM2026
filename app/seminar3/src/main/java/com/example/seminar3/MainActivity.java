@@ -3,6 +3,7 @@ package com.example.seminar3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,9 +14,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvAutobuz;
+    private ArrayList<Autobuz> listaAutobuze = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +31,31 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        Button btnAdauga = findViewById(R.id.btnOpenActivity);
+        btnAdauga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(MainActivity.this, AdaugaAutobuzActivity.class);
+                startActivityForResult(it, 83);
+            }
+        });
+
+        Button btnAfiseaza = findViewById(R.id.btnShowActivity);
+        btnAfiseaza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(MainActivity.this, ShowBusActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("lista", listaAutobuze);
+                it.putExtras(bundle);
+
+                startActivityForResult(it, 84);
+            }
+        });
     }
 
-    public void openActivity(View view) {
-        tvAutobuz = findViewById(R.id.tvAutobuz);
-        Intent it = new Intent(this, AdaugaAutobuzActivity.class);
-        startActivityForResult(it, 83);
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -41,8 +63,12 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 83 && resultCode == RESULT_OK && data != null) {
             Bundle bundle = data.getExtras();
             Autobuz autobuz = (Autobuz) bundle.getSerializable("autobuz");
-            tvAutobuz.setText(autobuz.toString());
+            listaAutobuze.add(autobuz);
             Toast.makeText(this, autobuz.toString(), Toast.LENGTH_LONG).show();
+        }
+        if (requestCode == 84 && resultCode == RESULT_OK && data != null) {
+            Bundle bundle = data.getExtras();
+            listaAutobuze = (ArrayList<Autobuz>) bundle.getSerializable("lista");
         }
     }
 }

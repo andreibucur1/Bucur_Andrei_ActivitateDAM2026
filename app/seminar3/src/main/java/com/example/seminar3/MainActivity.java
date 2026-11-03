@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent it = new Intent(MainActivity.this, ShowBusActivity.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("lista", listaAutobuze);
+                bundle.putParcelableArrayList("lista", listaAutobuze);
                 it.putExtras(bundle);
 
                 startActivityForResult(it, 84);
@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 83 && resultCode == RESULT_OK && data != null) {
             Bundle bundle = data.getExtras();
-            Autobuz autobuz = (Autobuz) bundle.getSerializable("autobuz");
+            Autobuz autobuz = bundle.getParcelable("autobuz");
             listaAutobuze.add(autobuz);
             Toast.makeText(this, autobuz.toString(), Toast.LENGTH_LONG).show();
         }
         if (requestCode == 84 && resultCode == RESULT_OK && data != null) {
             Bundle bundle = data.getExtras();
-            listaAutobuze = (ArrayList<Autobuz>) bundle.getSerializable("lista");
+            listaAutobuze = bundle.getParcelableArrayList("lista");
         }
     }
 }

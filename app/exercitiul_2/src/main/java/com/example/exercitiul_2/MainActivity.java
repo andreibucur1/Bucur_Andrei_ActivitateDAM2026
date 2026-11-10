@@ -14,9 +14,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
-
+    private List<Caine> caini = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +41,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnAfiseazaCaini = findViewById(R.id.buttonViewCaini);
+        btnAfiseazaCaini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), AfisareCainiActivity.class);
+                Bundle b = new Bundle();
+                b.putSerializable("caini", (ArrayList<Caine>)caini);
+                it.putExtras(b);
+                startActivityForResult(it, 123);
+            }
+
+        });
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 83 && resultCode == RESULT_OK && data != null) {
-            Caine cainePrimit = (Caine)data.getSerializableExtra("caine");
-            TextView t = findViewById(R.id.textViewCaine);
-            t.setText(cainePrimit.toString());
-            Toast.makeText(this,cainePrimit.toString(), Toast.LENGTH_LONG).show();
+        if(resultCode == RESULT_OK && data != null) {
+            switch (requestCode) {
+                case 83:
+                    Caine cainePrimit = (Caine) data.getSerializableExtra("caine");
+                    caini.add(cainePrimit);
+                    Toast.makeText(this, "caine adaugat", Toast.LENGTH_SHORT).show();
+                    break;
+                case 123:
+                    caini = (List<Caine>) data.getSerializableExtra("caini");
+                    break;
+
+            }
+
         }
     }
 }

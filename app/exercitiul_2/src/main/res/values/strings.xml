@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">exercitiul_2</string>
+    <string-array name="rase">
+        <item>Labrador</item>
+        <item>Ciobănesc german</item>
+        <item>Bulldog</item>
+        <item>Metis</item>
+    </string-array>
+</resources>

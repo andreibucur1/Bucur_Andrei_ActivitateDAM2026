@@ -30,9 +30,10 @@ public class AfisareCainiActivity extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         List<Caine> caini = (List<Caine>) b.getSerializable("caini");
-        ArrayAdapter<Caine> adapter = new ArrayAdapter<Caine>(getApplicationContext(), android.R.layout.simple_list_item_1, caini);
+//        ArrayAdapter<Caine> adapter = new ArrayAdapter<Caine>(getApplicationContext(), android.R.layout.simple_list_item_1, caini);
+        CaineAdapter caineAdapter = new CaineAdapter(caini,getApplicationContext(), R.layout.row_caine);
         ListView listview = findViewById(R.id.listViewCaini);
-        listview.setAdapter(adapter);
+        listview.setAdapter(caineAdapter);
 
         listview.setOnItemClickListener((parent, view, position, id) -> {
             Caine c = caini.get(position);
@@ -42,7 +43,7 @@ public class AfisareCainiActivity extends AppCompatActivity {
         listview.setOnItemLongClickListener((parent, view, position, id) -> {
             Caine c = caini.get(position);
             caini.remove(c);
-            adapter.notifyDataSetChanged();
+            caineAdapter.notifyDataSetChanged();
             Intent it = new Intent();
             Bundle bb = new Bundle();
             bb.putSerializable("caini", (ArrayList<Caine>)caini);

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">model_test_1</string>
+    <string name="adauga_laptop">adauga laptop</string>
+    <string name="id">ID:</string>
+    <string name="ex_67">ex: 67</string>
+    <string name="pret">Pret:</string>
+    <string name="ex_12_3">ex: 12.3</string>
+    <string name="marca">Marca</string>
+    <string name="lenovo">lenovo</string>
+    <string name="asus">asus</string>
+    <string name="hp">hp</string>
+    <string name="creaza">Creaza</string>
+    <string name="afiseaza">Afiseaza</string>
+    <string name="lista">lista</string>
+    <string name="laptop">laptop</string>
+</resources>

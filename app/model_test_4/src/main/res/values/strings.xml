@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">model_test_4</string>
+    <string name="creaza_cutie">Creaza cutie</string>
+    <string name="premium">premium?</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="culoara">culoara</string>
+    <string name="volum">volum</string>
+    <string name="cod">cod</string>
+    <string name="textview">TextView</string>
+    <string name="afiseaza">afiseaza</string>
+    <string name="nupremium">nupremium</string>
+</resources>

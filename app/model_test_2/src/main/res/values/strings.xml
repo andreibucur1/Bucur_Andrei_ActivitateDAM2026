@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">model_test_2</string>
+    <string name="adaugare">Adaugare</string>
+    <string-array name="marci">
+        <item>iphone</item>
+        <item>samsung</item>
+        <item>hp</item>
+    </string-array>
+</resources>

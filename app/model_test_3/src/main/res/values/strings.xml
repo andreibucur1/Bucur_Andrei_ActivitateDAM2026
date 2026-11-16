@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">model_test_3</string>
+    <string name="creare">Creare</string>
+    <string-array name="tari">
+        <item>Ro</item>
+        <item>It</item>
+        <item>Hu</item>
+    </string-array>
+</resources>

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 Bundle b= new Bundle();
                 b.putParcelableArrayList("lista", (ArrayList<? extends Parcelable>) lista);
                 it.putExtras(b);
-                startActivity(it);
+                startActivityForResult(it, 676);
             }
         });
     }
@@ -59,8 +59,11 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK && data != null){
             switch(requestCode){
                 case 67:
-                    Telefon t = (Telefon)data.getParcelableExtra("telefon");
+                    Telefon t = data.getParcelableExtra("telefon");
                     lista.add(t);
+                case 676:
+                    Intent it = getIntent();
+                    lista = it.getParcelableArrayListExtra("lista");
             }
         }
     }

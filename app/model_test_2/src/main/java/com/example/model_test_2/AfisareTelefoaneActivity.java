@@ -51,6 +51,12 @@ public class AfisareTelefoaneActivity extends AppCompatActivity {
                 Telefon t = l.get(position);
                 t.setCapacitateBaterie(t.getCapacitateBaterie() * 0.9);
                 adapter.notifyDataSetChanged();
+                Intent it = new Intent();
+                Bundle b = new Bundle();
+                b.putParcelableArrayList("lista", l);
+                it.putExtras(b);
+                setResult(RESULT_OK, it);
+                finish();
                 return true;
             }
         });

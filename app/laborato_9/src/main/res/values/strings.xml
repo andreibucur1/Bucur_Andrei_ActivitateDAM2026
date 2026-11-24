@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">laborato_9</string>
+    <string name="deschide_cautare">Cauta oras</string>
+    <string name="hint_oras">Numele orasului, ex: Timisoara</string>
+    <string name="cauta">Cauta</string>
+    <string name="eroare_camp_obligatoriu">Camp obligatoriu</string>
+    <string name="lipseste_cheia">Lipseste cheia API din fisierul .env</string>
+    <string name="oras_negasit">Niciun oras gasit</string>
+    <string name="eroare_generala">A aparut o eroare. Incearca din nou.</string>
+    <string name="cheie_oras">Cheia orasului: %1$s</string>
+    <string name="zi_temperaturi">Ziua %1$d: minima %2$.1f %3$s, maxima %4$.1f %5$s</string>
+
+    <string-array name="perioade">
+        <item>1 zi</item>
+        <item>5 zile</item>
+    </string-array>
+</resources>
